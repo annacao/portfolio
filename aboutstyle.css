@@ -11,7 +11,7 @@ html {
 
 body {
   min-height: 100vh;
-  display: flex; /* missing semicolon fixed */
+  display: flex; 
   flex-direction: column;
   justify-content: space-between;
   font-family: "Inter", sans-serif;
@@ -73,73 +73,41 @@ body {
   transform: scale(1.05); /* slightly enlarge */
 }
 
-/*==========================================body content============================================*/
-/*entire intro container */
-.intro-section {
-  flex-direction: row-reverse; /* swap sides (image left, text right) */
+/*====================================================================================================================================================*/
+main {
+  flex: 1; /* takes up remaining space between header and footer */
+  display: flex;
+  flex-direction: column;
+  border: solid red;
+}
+/*===================================================================================================================================================*/
+.about-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 55vh; /* 👈 slightly shorter */
-  height: auto; /* 👈 automatically adapts to content */
-  min-height: 40vh; /* ensures it doesn't collapse */
-  margin-top: 0;
+}
+#about-title {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
+
+  /* animation */
+  opacity: 0;
+  animation: fadeIn 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+
+  border: solid black;
 }
 
-.intro-section > * {
-  flex: 1;
-}
-
-/* Wrapper constraint (makes the text and image horizontally centered */
-.intro-section {
-  max-width: 1200px; /* controls how wide the text+image area is */
-  margin: 0 auto; /* centers it horizontally */
-  gap: 4rem; /* space between the text and image */
-  padding: 0rem; /* breathing room inside the green area */
-}
-
-/*container for intro texts*/
-.annas-intro {
-  position: relative;
-  top: 2rem;
-  display: flex;
-  flex-direction: column;
-  margin-top: 0px;
-  margin-right: 9rem;
-  flex: 1;
-}
-
-#salutation {
-  margin-bottom: 2rem;
+#sample-text {
   font-size: 2rem;
-  font-weight: 550;
-  color: white; /*text color*/
+  color: white;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
 
   /* animation */
   opacity: 0;
   animation: fadeIn 1.2s ease-out forwards;
-  animation-delay: 0.3s; /* starts slightly after the h1 */
-}
-
-#tagline {
-  margin-bottom: 2rem;
-  font-size: 3rem;
-  color: white; /*text color*/
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 1);
-
-  /* animation */
-  opacity: 0;
-  animation: fadeIn 1.2s ease-out forwards;
-  animation-delay: 1.6s; /* starts slightly after the h1 */
-}
-
-#description {
-  color: white; /*text color*/
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.847);
-  white-space: nowrap; /* forces text to stay on one line */
-  margin-top: 0rem;
+  animation-delay: 0.3s;
 }
 
 /* text Fade-in animation */
@@ -154,251 +122,17 @@ body {
   }
 }
 
-/*=================================open to work section===========================*/
-/* Status Badge */
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background-color: #ffffff;
-  border-radius: 999px;
-  padding: 0.3rem 0.8rem; /*================ ⬅️ Increase these */
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: #000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  width: fit-content;
 
-  /* ✨ Positioning */
-  position: relative;
-  justify-content: flex-end;
-  margin-right: 14rem; /* moves it to the right */
-}
 
-/* Green pulsing dot */
-.status-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #00d26a;
-  position: relative;
-}
 
-/* Glowing pulse animation */
-.status-dot::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #00d26a;
-  opacity: 0.5;
-  animation: pulse 1.5s infinite;
-}
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  70% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
 
-/*==============================================================================*/
 
-/*container for image*/
-.intro-image {
-  position: relative;
-  top: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  margin-top: -5rem;
-  margin-left: 3rem;
-  margin-bottom:2rem;
-}
 
-.intro-image img {
-  position: absolute;
-  /*top:0%;       adjust positioning wihtout moving other elements around*/
-  /*left:0%;      adjust positioning wihtout moving other elements around*/
-  height: 36vh;
-  width: auto;
-  border-radius: 2rem;
-  margin-top: 100px;
 
-  /* animation */
-  opacity: 0;
-  transform: translateX(40px); /* start slightly off to the right */
-  animation: fadeInLeft 1.3s ease-out forwards;
-  animation-delay: 1s; /* starts after your text appears */
-}
 
-/* image Fade-in animation */
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(40px); /* shifted right */
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0); /* slides into place */
-  }
-}
 
-/*=====================================body content (Explore projects) ========================================*/
-/* explore and cards container */
-#projects {
-  max-width: 1600px; /* controls how wide the cards area is */
-  margin: 0 auto; /* centers it horizontally */
-  margin-bottom: 1rem;
-}
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  max-width: 1600px; /* controls how wide the cards area is */
-  margin: 0 auto; /* centers it horizontally */
-}
-.section-title {
-  margin: 1rem;
-}
-
-/*==========================================body content (CARDS) ============================================*/
-
-/*Explore my projects etc. container*/
-.section-title {
-  position: relative;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding-left: 0rem;
-  position: relative;
-  left: 19rem;
-}
-
-.card-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0rem;
-  position: relative; /*controls z-index stacking*/
-}
-
-/* Wrapper constraint (makes the card horizontally centered */
-.card-container {
-  max-width: 1600px; /* controls how wide the cards area is */
-  margin: 0 auto; /* centers it horizontally */
-  gap: 2rem; /* space between the cards */
-  padding: 0rem; /* breathing room inside the green area */
-  flex-wrap: wrap; /* allows cards to wrap on smaller screens */
-}
-
-.card {
-  border-radius: 2rem;
-  width: 230px; /* ✅ fixed width */
-  height: 300px; /* ✅ fixed height */
-  background-color: #9c9486;
-  border: 6px solid rgb(255, 255, 255);
-  transition: transform 0.4s ease, box-shadow 0.4s ease; /*smooth hover transitions*/
-  margin-left: -60px; /* overlap by pulling cards closer */
-
-  /*texts within the card*/
-  display: flex; /* enables flexbox inside each card */
-  flex-direction: column; /* stacks content vertically */
-  justify-content: center; /* centers vertically */
-  align-items: center; /*centers horizontally*/
-  gap: 1rem; /*gap between the text box*/
-}
-/*project title text style*/
-.card h3 {
-  color: white;
-}
-.card p {
-  color: white;
-  text-align: center;
-}
-
-/* ============================================== Card Entrance Animation ===== */
-@keyframes slinkIn {
-  0% {
-    opacity: 0;
-    transform: translateY(60px) scale(0.95); /* lower & slightly smaller */
-  }
-  60% {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.02); /* overshoot upward */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1); /* settle */
-  }
-}
-
-/* Staggered delays */
-.card:nth-child(1) {
-  animation-delay: 0.2s;
-}
-.card:nth-child(2) {
-  animation-delay: 0.3s;
-}
-.card:nth-child(3) {
-  animation-delay: 0.4s;
-}
-.card:nth-child(4) {
-  animation-delay: 0.5s;
-}
-.card:nth-child(5) {
-  animation-delay: 0.6s;
-}
-.card:nth-child(6) {
-  animation-delay: 0.7s;
-}
-
-.card {
-  border-radius: 2rem;
-  width: 230px;
-  height: 300px;
-  background-color: #9c9486;
-  border: 6px solid rgb(255, 255, 255);
-  margin-left: -60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-
-  /* ====== Animation + Hover transitions ====== */
-  opacity: 0; /* start hidden */
-  animation: slinkIn 0.9s cubic-bezier(0.25, 1.5, 0.5, 1) forwards;
-  animation-fill-mode: forwards; /* keeps final position */
-
-  /* smooth hover movement */
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1.1),
-    box-shadow 0.45s ease;
-  will-change: transform, box-shadow;
-}
-
-/* Hover effect */
-.card:hover {
-  transform: translateY(-20px) scale(1.05);
-  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
 
 footer {
   /*position: fixed;*/
